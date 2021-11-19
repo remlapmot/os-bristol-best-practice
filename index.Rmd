@@ -1,0 +1,36 @@
+---
+title: "Best practice guide for Bristol Uni users of OpenSAFELY"
+author: "Tom Palmer"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    # toc: true
+    # toc_float:
+    #   collapsed: false
+    #   smooth_scroll: false
+    # toc_depth: 2
+    # code_download: true
+    # code_folding: show
+    anchor_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction 
+
+The following is intended as a set of tips for Bristol Uni users of the OpenSAFELY system.
+
+## Best practice guide{.tabset .tabset-pills .tabset-fade} 
+
+### `project.yaml`
+
+### `study_definition.py`
+
+- Set a random number seed at the top of this file -- this ensures exactly the same dummy data will be generated everytime you run it
+
+    ``` python
+    import numpy as np
+    np.random.seed(123456)
+    ```
