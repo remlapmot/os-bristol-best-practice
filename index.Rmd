@@ -38,6 +38,16 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
           moderately_sensitive:
             notebook: output/report.html
     ```
+
+- If you use an R Markdown notebook within your repo create a folder called `rmarkdown` at the top level of the repo
+  - In the YAML header of the .Rmd file define the output type as `output: html_document`
+  - Write a separate .R script that runs a single command 
+  
+    ``` r
+    rmarkdown::render('myrmdfile.Rmd', encoding = 'UTF-8') 
+    ```  
+  - And write an `r` action to run the script which will produce the .html output file
+
 ### `study_definition.py`
 
 - Set a random number seed at the top of this file -- this ensures exactly the same dummy data will be generated everytime you run it
