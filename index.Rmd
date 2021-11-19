@@ -56,3 +56,7 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
     import numpy as np
     np.random.seed(123456)
     ```
+
+- Dataset formats
+  - Please use feather for ...
+  - Please use csv for ...
