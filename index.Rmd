@@ -50,7 +50,7 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
 
 ### `study_definition.py`
 
-- Set a random number seed at the top of this file -- this ensures exactly the same dummy data will be generated everytime you run it
+- To ensure the dummy data system generates exactly the same data everytime you run it, set a random number generator seed at the top of this file with
 
     ``` python
     import numpy as np
