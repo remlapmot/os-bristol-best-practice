@@ -29,6 +29,21 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
 
 ### `project.yaml`
 
+### `study_definition.py`
+
+- To ensure the dummy data system generates exactly the same data everytime you run it, set a random number generator seed at the top of this file with
+
+    ``` python
+    import numpy as np
+    np.random.seed(123456)
+    ```
+
+- Dataset formats
+  - Please use feather for ...
+  - Please use csv for ...
+
+### Jupyter and Rmd notebooks
+
 - If you use a Jupyter notebook create a folder called `notebooks` at the top level of your repo
   - Only use Python code chunks within the notebook
   - The action to compile the notebook will be of the form
@@ -50,16 +65,3 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
     rmarkdown::render('myrmdfile.Rmd', encoding = 'UTF-8') 
     ```  
   - And write an `r` action to run the script which will produce the .html output file
-
-### `study_definition.py`
-
-- To ensure the dummy data system generates exactly the same data everytime you run it, set a random number generator seed at the top of this file with
-
-    ``` python
-    import numpy as np
-    np.random.seed(123456)
-    ```
-
-- Dataset formats
-  - Please use feather for ...
-  - Please use csv for ...
