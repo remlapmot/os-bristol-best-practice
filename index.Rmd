@@ -26,6 +26,18 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
 
 ### `project.yaml`
 
+- If you use a Jupyter notebook create a folder called `notebooks` at the top level of your repo
+  - Only use Python code chunks within the notebook
+  - The action to compile the notebook will be of the form
+
+    ``` yaml
+      generate_notebook:
+        run: jupyter:latest jupyter nbconvert /workspace/analysis/report.ipynb --execute --to html --template basic --output-dir=/workspace/output --ExecutePreprocessor.timeout=86400 --no-input
+        needs:
+        outputs:
+          moderately_sensitive:
+            notebook: output/report.html
+    ```
 ### `study_definition.py`
 
 - Set a random number seed at the top of this file -- this ensures exactly the same dummy data will be generated everytime you run it
