@@ -182,13 +182,38 @@ pre code {
 <h2 class="tabset tabset-pills tabset-fade">Best practice guide</h2>
 <div id="project.yaml" class="section level3">
 <h3><code>project.yaml</code></h3>
+<ul>
+<li>If you use a Jupyter notebook create a folder called <code>notebooks</code> at the top level of your repo
+<ul>
+<li><p>Only use Python code chunks within the notebook</p></li>
+<li><p>The action to compile the notebook will be of the form</p>
+<pre class="yaml"><code>  generate_notebook:
+    run: jupyter:latest jupyter nbconvert /workspace/analysis/report.ipynb --execute --to html --template basic --output-dir=/workspace/output --ExecutePreprocessor.timeout=86400 --no-input
+    needs:
+    outputs:
+      moderately_sensitive:
+        notebook: output/report.html</code></pre></li>
+</ul></li>
+<li>If you use an R Markdown notebook within your repo create a folder called <code>rmarkdown</code> at the top level of the repo
+<ul>
+<li><p>In the YAML header of the .Rmd file define the output type as <code>output: html_document</code></p></li>
+<li><p>Write a separate .R script that runs a single command</p>
+<pre class="r"><code>rmarkdown::render(&#39;myrmdfile.Rmd&#39;, encoding = &#39;UTF-8&#39;) </code></pre></li>
+<li><p>And write an <code>r</code> action to run the script which will produce the .html output file</p></li>
+</ul></li>
+</ul>
 </div>
 <div id="study_definition.py" class="section level3">
 <h3><code>study_definition.py</code></h3>
 <ul>
-<li><p>Set a random number seed at the top of this file – this ensures exactly the same dummy data will be generated everytime you run it</p>
+<li><p>To ensure the dummy data system generates exactly the same data everytime you run it, set a random number generator seed at the top of this file with</p>
 <pre class="python"><code>import numpy as np
 np.random.seed(123456)</code></pre></li>
+<li><p>Dataset formats</p>
+<ul>
+<li>Please use feather for …</li>
+<li>Please use csv for …</li>
+</ul></li>
 </ul>
 </div>
 </div>
