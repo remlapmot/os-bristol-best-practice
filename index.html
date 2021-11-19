@@ -186,6 +186,22 @@ pre code {
 <h2 class="tabset tabset-pills tabset-fade">Best practice guide</h2>
 <div id="project.yaml" class="section level3">
 <h3><code>project.yaml</code></h3>
+</div>
+<div id="study_definition.py" class="section level3">
+<h3><code>study_definition.py</code></h3>
+<ul>
+<li><p>To ensure the dummy data system generates exactly the same data everytime you run it, set a random number generator seed at the top of this file with</p>
+<pre class="python"><code>import numpy as np
+np.random.seed(123456)</code></pre></li>
+<li><p>Dataset formats</p>
+<ul>
+<li>Please use feather for …</li>
+<li>Please use csv for …</li>
+</ul></li>
+</ul>
+</div>
+<div id="jupyter-and-rmd-notebooks" class="section level3">
+<h3>Jupyter and Rmd notebooks</h3>
 <ul>
 <li>If you use a Jupyter notebook create a folder called <code>notebooks</code> at the top level of your repo
 <ul>
@@ -204,19 +220,6 @@ pre code {
 <li><p>Write a separate .R script that runs a single command</p>
 <pre class="r"><code>rmarkdown::render(&#39;myrmdfile.Rmd&#39;, encoding = &#39;UTF-8&#39;) </code></pre></li>
 <li><p>And write an <code>r</code> action to run the script which will produce the .html output file</p></li>
-</ul></li>
-</ul>
-</div>
-<div id="study_definition.py" class="section level3">
-<h3><code>study_definition.py</code></h3>
-<ul>
-<li><p>To ensure the dummy data system generates exactly the same data everytime you run it, set a random number generator seed at the top of this file with</p>
-<pre class="python"><code>import numpy as np
-np.random.seed(123456)</code></pre></li>
-<li><p>Dataset formats</p>
-<ul>
-<li>Please use feather for …</li>
-<li>Please use csv for …</li>
 </ul></li>
 </ul>
 </div>
