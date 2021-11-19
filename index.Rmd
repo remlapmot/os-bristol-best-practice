@@ -1,6 +1,9 @@
 ---
 title: "Best practice guide for Bristol Uni users of OpenSAFELY"
-author: "Tom Palmer"
+author:
+  - Tom Palmer
+  - Elsie Horne
+  - Venexia Walker
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   html_document:
