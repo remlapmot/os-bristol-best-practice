@@ -68,6 +68,10 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
 
 ### R code
 
+#### Image output format
+
+- `.svg` - check Will's repo
+- Start x-axis at 5 instead of 0
 
 ### Jupyter and Rmd notebooks
 
