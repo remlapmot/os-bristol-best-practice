@@ -51,7 +51,13 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
         highly_sensitive:
           cohort: output/input_vax.feather
     ```  
-  - Use the **arrow** package read the `.feather` file into R
+  - Use the **arrow** package read the `.feather` file into R, e.g.,  
+  
+    ``` r
+    library(arrow)
+    read_feather(file = "myfile.feather")
+    ```  
+  - And use its `col_select` argument to read in just the columns you need   
   - Then have an initial processing R script which formats the `.feather` file, which you `source('')` at the start of your R analysis scripts  
   - Or e.g., `01_processing.R` which outputs to `.rds` or `.Rdata` format; 
   - Use `readr::read_rds()` to read this into R
