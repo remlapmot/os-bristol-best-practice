@@ -54,11 +54,17 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
   - Use the **arrow** package read the `.feather` file into R
   - Then have an initial processing R script which formats the `.feather` file, which you `source('')` at the start of your R analysis scripts  
   - Or e.g., `01_processing.R` which outputs to `.rds` or `.Rdata` format; 
-  - Use `readr::read_rds()` to read this into R  
+  - Use `readr::read_rds()` to read this into R
+  
 <!--
   - Alternatively, use the **vroom** package, the `vroom::vroom()` function has the `col_sel` argument
 -->
+
   - Please use `.csv` for moderately_sensitive output
+
+### Redacting output
+
+- Will's redaction functions
 
 
 ### Jupyter and Rmd notebooks
