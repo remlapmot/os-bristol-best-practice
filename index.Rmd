@@ -31,6 +31,7 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
 
 ### `study_definition.py`
 
+#### Dummy data
 - To ensure the dummy data system generates exactly the same data everytime you run it, set a random number generator seed at the top of this file with
 
     ``` python
