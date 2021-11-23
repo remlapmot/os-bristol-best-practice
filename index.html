@@ -209,11 +209,18 @@ np.random.seed(123456)</code></pre></li>
     highly_sensitive:
       cohort: output/input_vax.feather</code></pre>
 <ul>
-<li>Use the <strong>arrow</strong> package read the <code>.feather</code> file into R</li>
-<li>Then have an initial processing R script which formats the <code>.feather</code> file, which you <code>source(&#39;&#39;)</code> at the start of your R analysis scripts<br />
-</li>
-<li>Or e.g., <code>01_processing.R</code> which outputs to <code>.rds</code> or <code>.Rdata</code> format;</li>
-<li>Use <code>readr::read_rds()</code> to read this into R</li>
+<li><p>Use the <strong>arrow</strong> package read the <code>.feather</code> file into R, e.g.,</p>
+<pre class="r"><code>library(arrow)
+read_feather(file = &quot;myfile.feather&quot;)</code></pre></li>
+<li><p>And use its <code>col_select</code> argument to read in just the columns you need<br />
+</p></li>
+<li><p>Then have an initial processing R script which formats the <code>.feather</code> file, which you <code>source(&#39;&#39;)</code> at the start of your R analysis scripts<br />
+</p></li>
+<li><p>Or write an R script to process your data, e.g., <code>01_processing.R</code> which outputs to <code>.rds</code> format;</p>
+<pre class="r"><code>saveRDS(object, file = &quot;mydata.rds&quot;)</code></pre></li>
+<li><p>Use to read this into R</p>
+<pre class="r"><code>library(readr)
+read_rds(file = &quot;mydata.rds&quot;)</code></pre></li>
 </ul></li>
 </ul>
 <!--
