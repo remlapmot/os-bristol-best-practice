@@ -59,8 +59,17 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
     ```  
   - And use its `col_select` argument to read in just the columns you need   
   - Then have an initial processing R script which formats the `.feather` file, which you `source('')` at the start of your R analysis scripts  
-  - Or e.g., `01_processing.R` which outputs to `.rds` or `.Rdata` format; 
-  - Use `readr::read_rds()` to read this into R
+  - Or write an R script to process your data, e.g., `01_processing.R` which outputs to `.rds` format; 
+  
+    ``` r
+    saveRDS(object, file = "mydata.rds")
+    ```  
+  - Use to read this into R  
+
+    ``` r
+    library(readr)
+    read_rds(file = "mydata.rds")
+    ```  
   
 <!--
   - Alternatively, use the **vroom** package, the `vroom::vroom()` function has the `col_sel` argument
