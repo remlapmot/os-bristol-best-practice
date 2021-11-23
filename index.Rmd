@@ -39,8 +39,26 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
     ```
 
 - Dataset formats
-  - Please use feather for ...
-  - Please use csv for ...
+  - Please use feather for highly_sensitive output for inputting into your R scripts  
+
+  ``` yaml
+  generate_study_population_vax:
+    run: cohortextractor:latest generate_cohort --study-definition study_definition_vax --output-format feather
+    needs: 
+    - design
+    outputs:
+      highly_sensitive:
+        cohort: output/input_vax.feather
+  ```  
+  - Use the **arrow** package read the `.feather` file into R
+  - Then have an initial processing R script which formats the `.feather` file, which you `source('')` at the start of your R analysis scripts  
+  - Or e.g., `01_processing.R` which outputs to `.rds` or `.Rdata` format; 
+  - Use `readr::read_rds()` to read this into R  
+<!--
+  - Alternatively, use the **vroom** package, the `vroom::vroom()` function has the `col_sel` argument
+-->
+  - Please use `.csv` for moderately_sensitive output
+
 
 ### Jupyter and Rmd notebooks
 
