@@ -111,3 +111,11 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
     rmarkdown::render('myrmdfile.Rmd', encoding = 'UTF-8') 
     ```  
   - And write an `r` action to run the script which will produce the .html output file
+
+### General coding tips
+
+- Text files should end with a newline character (i.e., a blank line)
+  - If you see the following red icon at the end of a file on GitHub, simply press Enter/Return at the end of the file, resave, commit, and the red icon should be gone  
+    ```{r}
+    knitr::include_graphics("img/endoffile-newline-missing.png")
+    ```  
