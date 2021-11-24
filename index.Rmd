@@ -115,7 +115,7 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
 ### General coding tips
 
 - Text files should end with a newline character (i.e., a blank line)
-  - If you see the following red icon at the end of a file on GitHub, simply press <kbd>Enter</kbd>/<kbd>Return</kbd> at the end of the file, resave, commit, and the red icon should be gone  
+  - If you see the following red icon at the end of a file on GitHub, simply press <kbd>↵ Enter</kbd> at the end of the file, resave, commit, and the red icon should be gone  
     ```{r}
     knitr::include_graphics("img/endoffile-newline-missing.png")
     ```  
