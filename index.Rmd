@@ -36,7 +36,7 @@ The following is intended as a set of tips for users of the OpenSAFELY system at
 
 #### File formats
 
-- Use `.feather` files for outputs from the cohortextractor
+- Use `.feather` files for outputs from the cohortextractor, so specify an action in your `project.yaml` as follows
 
     ``` yaml
     generate_study_population:
