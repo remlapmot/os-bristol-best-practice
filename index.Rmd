@@ -88,6 +88,22 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
 - `.svg` - check Will's repo
 - Start x-axis at 5 instead of 0
 
+#### RStudio project
+
+- Define your repo as an RStudio project
+  - File | New Project...  
+    ```{r}
+    knitr::include_graphics("img/rstudio-newproject-1.png")
+    ```  
+  - Existing Directory  
+    ```{r}
+    knitr::include_graphics("img/rstudio-newproject-2.png")
+    ```  
+  - Then find your repo
+  - This will create a `.Rproj` file at the top level of your repo
+  - Commit the file into your repo
+  - Now you can double click the `.Rproj` file to open the repo in RStudio, so you can work on your R scripts more conveniently
+
 ### Jupyter and Rmd notebooks
 
 - If you use a Jupyter notebook create a folder called `notebooks` at the top level of your repo
