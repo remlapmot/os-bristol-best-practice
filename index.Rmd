@@ -88,8 +88,8 @@ The following is intended as a set of tips for users of the OpenSAFELY system at
 
 #### Supported packages
 
-- [Installed package list](https://github.com/opensafely-core/r-docker/blob/master/packages.csv)
-- To request a new package, [open an issue](https://github.com/opensafely-core/r-docker/issues)
+- The R packages (and their version number) which are installed in the OpenSAFELY R Docker container are listed [here](https://github.com/opensafely-core/r-docker/blob/master/packages.csv)
+- To request a new package, which should be on CRAN, open a new issue [here](https://github.com/opensafely-core/r-docker/issues), including the link to its CRAN webpage
 
 #### RStudio project
 
