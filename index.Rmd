@@ -93,7 +93,7 @@ The following is intended as a set of tips for users of the OpenSAFELY system at
 
 #### RStudio project
 
-- Define your repo as an RStudio project
+- Define your repo as an RStudio project in RStudio as follows
   - File | New Project...  
     ```{r}
     knitr::include_graphics("img/rstudio-newproject-1.png")
