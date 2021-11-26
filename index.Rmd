@@ -113,7 +113,7 @@ All outputs for release should be classified as `moderately_sensitive` in action
 
 #### Tables
 
-  - Use base R to save `.csv` files that will be sent to output checkers
+  - Use `write.csv()` to save `.csv` files that will be sent to output checkers (this is in the **utils** package which is loaded by default in every R session)
 
     ``` r
     write.csv(object, file = "mydata.csv")
