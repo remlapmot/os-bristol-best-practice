@@ -122,7 +122,7 @@ All outputs for release should be classified as `moderately_sensitive` in action
 #### Figures
 
 - Use `.svg` for figure outputs that will be sent to output checkers
-- Where applicable (e.g., histograms), start x-axis at 5 instead of 0 to ensure low counts are not exported
+- Where applicable (e.g., histograms), start the *x*-axis at 5 instead of 0 to ensure low counts are not exported
 
 #### Releasing output
 
