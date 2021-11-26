@@ -27,7 +27,7 @@ The following is intended as a set of tips for users of the OpenSAFELY system at
 
 #### Reproducibile dummy data
 
-- To ensure the dummy data system generates exactly the same data every time you run it, set a random number generator seed at the top of the study_definition.py file
+- To ensure the dummy data system generates exactly the same data every time you run it, set a random number generator seed at the top of the `study_definition.py` file
 
     ``` python
     import numpy as np
