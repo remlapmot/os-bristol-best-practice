@@ -1,10 +1,6 @@
 ---
-title: "Best practice guide for Bristol Uni users of OpenSAFELY"
-author:
-  - Tom Palmer
-  - Elsie Horne
-  - Venexia Walker
-date: "`r format(Sys.time(), '%d %B %Y')`"
+title: "University of Bristol OpenSAFELY Best Practice"
+author: Tom Palmer, Elsie Horne, Venexia Walker
 output:
   html_document:
     # toc: true
@@ -23,66 +19,77 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Introduction 
 
-The following is intended as a set of tips for Bristol Uni users of the OpenSAFELY system.
+The following is intended as a set of tips for users of the OpenSAFELY system at the University of Bristol.
 
 ## Best practice guide{.tabset .tabset-pills .tabset-fade} 
 
-### `project.yaml`
+### Study definition
 
-### `study_definition.py`
+#### Reproducibile dummy data
 
-#### Dummy data
-- To ensure the dummy data system generates exactly the same data everytime you run it, set a random number generator seed at the top of this file with
+- To ensure the dummy data system generates exactly the same data every time you run it, set a random number generator seed at the top of the study_definition.py file
 
     ``` python
     import numpy as np
     np.random.seed(123456)
     ```
 
-#### Dataset formats
-- Please use feather for highly_sensitive output for inputting into your R scripts  
+#### File formats
+
+- Use `.feather` files for outputs from the cohortextractor
 
     ``` yaml
-    generate_study_population_vax:
-      run: cohortextractor:latest generate_cohort --study-definition study_definition_vax --output-format feather
+    generate_study_population:
+      run: cohortextractor:latest generate_cohort --study-definition study_definition --output-format feather
      needs: 
       - design
       outputs:
         highly_sensitive:
-          cohort: output/input_vax.feather
+          cohort: output/input.feather
     ```  
-  - Use the **arrow** package read the `.feather` file into R, e.g.,  
+- Use the **arrow** package to read `.feather` files into R 
   
     ``` r
     library(arrow)
     read_feather(file = "myfile.feather")
     ```  
-  - And use its `col_select` argument to read in just the columns you need   
-  - Then have an initial processing R script which formats the `.feather` file, which you `source('')` at the start of your R analysis scripts  
-  - Or write an R script to process your data, e.g., `01_processing.R` which outputs to `.rds` format; 
+  - The `col_select` argument can be used to read in just the columns you need   
+
+- Start each project with a preprocessing action that formats `.feather` files and outputs `.rds` files
   
     ``` r
     saveRDS(object, file = "mydata.rds")
     ```  
-  - Use to read this into R  
+
+### R code
+
+#### File formats
+
+- As per the study definition best practice, outputs from the cohortextractor should be provided as `.rds` files
+
+- Use the **readr** package to read `.rds` files 
 
     ``` r
     library(readr)
     read_rds(file = "mydata.rds")
     ```  
-  
+    
 <!--
   - Alternatively, use the **vroom** package, the `vroom::vroom()` function has the `col_sel` argument
 -->
 
-  - Please use `.csv` for moderately_sensitive output
+- Use base R to save `.rds` files
 
-### R code
+    ``` r
+    saveRDS(object, file = "mydata.rds")
+    ```  
+    
+- All `.rds` files should all be classified as 'highly_sensitive' in actions
 
-#### Image output format
+#### Supported packages
 
-- `.svg` - check Will's repo
-- Start x-axis at 5 instead of 0
+- [Installed package list](https://github.com/opensafely-core/r-docker/blob/master/packages.csv)
+- To request a new package, [open an issue](https://github.com/opensafely-core/r-docker/issues)
 
 #### RStudio project
 
@@ -100,6 +107,29 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
   - Commit the file into your repo
   - Now you can double click the `.Rproj` file to open the repo in RStudio, so you can work on your R scripts more conveniently
 
+### Outputs
+
+All outputs should be classified as 'moderately_sensitive' in actions. OpenSAFELY does not permit information relating to less than 5 individuals to be released. Redaction functions are available from other users to help you prepare your output.
+
+#### Tables
+
+  - Use base R to save `.csv` files that will be sent to output checkers
+
+    ``` r
+    write.csv(object, file = "mydata.csv")
+    ```  
+    
+#### Figures
+
+- Use `.svg` for figure outputs that will be sent to output checkers
+- Where applicable (e.g., histograms), start x-axis at 5 instead of 0 to ensure low counts are not exported
+
+#### Releasing output
+
+- To release an output, please complete the 'Output files for review' section of [this form](https://docs.opensafely.org/documents/OpenSAFELY_Output_Review_Form_15_11_21.docx) and email to your assigned Bristol L4 access person
+- Bristol L4 access people will check the output on the server on your behalf, complete the rest of the form (including files locations), and email to datarelease@opensafely.org for final approval
+
+<!--
 ### Jupyter and Rmd notebooks
 
 - If you use a Jupyter notebook create a folder called `notebooks` at the top level of your repo
@@ -123,8 +153,9 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
     rmarkdown::render('myrmdfile.Rmd', encoding = 'UTF-8') 
     ```  
   - And write an `r` action to run the script which will produce the .html output file
+-->
 
-### General coding tips
+### Miscellaneous
 
 - Text files should end with a newline character (i.e., a blank line)
   - If you see the following red icon at the end of a file on GitHub, simply press <kbd>`r knitr::asis_output('\U21B5')` Enter</kbd> at the end of the file (i.e., in this case after the `Catalog`), resave, commit, and the red icon should be gone  
@@ -132,6 +163,4 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
     knitr::include_graphics("img/endoffile-newline-missing.png")
     ```  
 
-### Redacting output
 
-- Will's redaction functions
