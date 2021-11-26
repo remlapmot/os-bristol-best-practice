@@ -84,7 +84,7 @@ The following is intended as a set of tips for users of the OpenSAFELY system at
     saveRDS(object, file = "mydata.rds")
     ```  
     
-- All `.rds` files should all be classified as 'highly_sensitive' in actions
+- All `.rds` files should all be classified as `highly_sensitive` in actions
 
 #### Supported packages
 
