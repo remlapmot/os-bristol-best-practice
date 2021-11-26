@@ -77,10 +77,6 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
 
   - Please use `.csv` for moderately_sensitive output
 
-### Redacting output
-
-- Will's redaction functions
-
 ### R code
 
 #### Image output format
@@ -135,3 +131,7 @@ The following is intended as a set of tips for Bristol Uni users of the OpenSAFE
     ```{r}
     knitr::include_graphics("img/endoffile-newline-missing.png")
     ```  
+
+### Redacting output
+
+- Will's redaction functions
