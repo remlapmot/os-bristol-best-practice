@@ -162,5 +162,3 @@ All outputs for release should be classified as `moderately_sensitive` in action
     ```{r}
     knitr::include_graphics("img/endoffile-newline-missing.png")
     ```  
-
-
