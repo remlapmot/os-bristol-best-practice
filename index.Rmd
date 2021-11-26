@@ -107,7 +107,7 @@ The following is intended as a set of tips for users of the OpenSAFELY system at
   - Commit the file into your repo
   - Now you can double click the `.Rproj` file to open the repo in RStudio, so you can work on your R scripts more conveniently
 
-### Outputs
+### Outputs for release
 
 All outputs should be classified as 'moderately_sensitive' in actions. OpenSAFELY does not permit information relating to less than 5 individuals to be released. Redaction functions are available from other users to help you prepare your output.
 
