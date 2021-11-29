@@ -31,7 +31,7 @@ The following is intended as a set of tips for users of the OpenSAFELY system at
 
     ``` python
     import numpy as np
-    np.random.seed(123456)
+    np.random.seed(123456) # change this number to one for which your scripts successfully run on the dummy data
     ```
 
 #### File formats
