@@ -55,7 +55,7 @@ The following is intended as a set of tips for users of the OpenSAFELY system at
     ```  
   - The `col_select` argument can be used to read in just the columns you need   
 
-- Start each project with a preprocessing action that formats `.feather` files and outputs `.rds` files
+- Start each project with a preprocessing action that formats `.feather` files and outputs `.rds` files which can be saved with `saveRDS()`
   
     ``` r
     saveRDS(object, file = "mydata.rds")
