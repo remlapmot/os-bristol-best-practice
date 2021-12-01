@@ -50,15 +50,14 @@ The following is intended as a set of tips for users of the OpenSAFELY system at
 - Use the **arrow** package to read `.feather` files into R 
   
     ``` r
-    library(arrow)
-    read_feather(file = "myfile.feather")
+    arrow::read_feather(file = file.path("output", "input.feather"))
     ```  
   - The `col_select` argument can be used to read in just the columns you need   
 
-- Start each project with a preprocessing action that formats `.feather` files and outputs `.rds` files which can be saved with `saveRDS()`
+- Start each project with a preprocessing action that formats `.feather` files and outputs (gzipped) `.rds` files which can be saved with `readr::write_rds()`
   
     ``` r
-    saveRDS(object, file = "mydata.rds")
+    readr::write_rds(object, file.path("output", "mydata.rds"), compress = "gz")
     ```  
 
 ### R code
@@ -67,24 +66,20 @@ The following is intended as a set of tips for users of the OpenSAFELY system at
 
 - As per the study definition best practice, outputs from the cohortextractor should be provided as `.rds` files
 
-- Use the **readr** package to read `.rds` files 
+- Use the **readr** package to read and write `.rds` files 
 
     ``` r
-    library(readr)
-    read_rds(file = "mydata.rds")
+    object <- readr::read_rds(file.path("output", "mydata.rds"))
+    readr::write_rds(object, file.path("output", "mydata.rds"), compress = "gz")
     ```  
     
 <!--
   - Alternatively, use the **vroom** package, the `vroom::vroom()` function has the `col_sel` argument
 -->
-
-- Use base R to save `.rds` files
-
-    ``` r
-    saveRDS(object, file = "mydata.rds")
-    ```  
     
-- All `.rds` files should all be classified as `highly_sensitive` in actions
+- All `.rds` files should all be classified as `highly_sensitive` in actions, as they cannot be opened on the results server and therefore cannot be reviewed or released.
+- `readr::write_rds` does not compress files by default. However, for large files it is recommended to compress using the argument `compress = "gz"`.
+- Use `file.path` to construct file paths that are reproducible across operating systems.
 
 #### Supported packages
 
@@ -113,10 +108,10 @@ All outputs for release should be classified as `moderately_sensitive` in action
 
 #### Tables
 
-  - Use `write.csv()` to save `.csv` files that will be sent to output checkers (this is in the **utils** package which is loaded by default in every R session)
+  - Use `readr::write_csv()` to save `.csv` files that will be sent to output checkers (this is about twice as fast as `utils::write.csv` and does not write row names).
 
     ``` r
-    write.csv(object, file = "mydata.csv")
+    readr::write_csv(object, file = file.path("output", "mydata.csv"))
     ```  
     
 #### Figures
