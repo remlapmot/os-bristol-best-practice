@@ -158,7 +158,7 @@ All outputs for release should be classified as `moderately_sensitive` in action
     knitr::include_graphics("img/endoffile-newline-missing.png")
     ```  
 - Python and R versions
-  - The versions of Python and R in their respective OpenSAFELY Docker containers are (as of `r format(Sys.time(), '%d %B %Y')`):
+  - The versions of Python and R in their respective OpenSAFELY Docker containers are (as of 1<sup>st</sup> December 2021):
     - Python 3.8.10
     - R 4.0.2
   - The Python and R code run within their respective Docker containers. Hence the version of Python and R used to run your analyses are the versions of Python and R in these Docker containers and *not* the versions of Python and R on your computer
