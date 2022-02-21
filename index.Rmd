@@ -108,7 +108,7 @@ All outputs for release should be classified as `moderately_sensitive` in action
 
 #### Tables
 
-  - Use `readr::write_csv()` to save `.csv` files that will be sent to output checkers (this is about twice as fast as `utils::write.csv` and does not write row names).
+  - Use `readr::write_csv()` to save `.csv` files that will be sent to output checkers (this is about twice as fast as `utils::write.csv()` and does not write row names).
 
     ``` r
     readr::write_csv(object, file = file.path("output", "mydata.csv"))
