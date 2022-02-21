@@ -1,6 +1,7 @@
 ---
 title: "University of Bristol OpenSAFELY Best Practice"
 author: Tom Palmer, Elsie Horne, Venexia Walker
+date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   html_document:
     # toc: true
