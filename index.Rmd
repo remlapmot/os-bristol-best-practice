@@ -113,6 +113,27 @@ All outputs for release should be classified as `moderately_sensitive` in action
     ``` r
     readr::write_csv(object, file = file.path("output", "mydata.csv"))
     ```  
+  - Do not save outputs to subdirectories of the `output` folder, otherwise running the study definition on GitHub Actions will probably fail with an error message such as  
+    ```{r}
+    knitr::include_graphics("img/output-subdir-error.png")
+    ```
+    ```
+    Error in file(file, ifelse(append, "a", "w")) : 
+       cannot open the connection
+     Calls: write.csv -> eval.parent -> eval -> eval -> write.table -> file
+     In addition: Warning message:
+     In file(file, ifelse(append, "a", "w")) :
+       cannot open file '/workspace/output/descriptive/tables/table1.csv': No such file or directory
+     Backtrace:
+     1: file(file, ifelse(append, "a", "w"))
+     2: write.table(table1_all$table_body, here::here("output", "descriptive", 
+     3: eval(expr, p)
+     4: eval(expr, p)
+     5: eval.parent(Call)
+     6: write.csv(table1_all$table_body, here::here("output", "descriptive",
+
+    Error: Process completed with exit code 1.
+    ```  
     
 #### Figures
 
