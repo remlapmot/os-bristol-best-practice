@@ -11,7 +11,7 @@
 
 <meta name="author" content="Tom Palmer, Elsie Horne, Venexia Walker" />
 
-<meta name="date" content="2022-02-21" />
+<meta name="date" content="2022-02-22" />
 
 <title>University of Bristol OpenSAFELY Best Practice</title>
 
@@ -402,7 +402,7 @@ pre code {
 <h1 class="title toc-ignore">University of Bristol OpenSAFELY Best
 Practice</h1>
 <h4 class="author">Tom Palmer, Elsie Horne, Venexia Walker</h4>
-<h4 class="date">21 February 2022</h4>
+<h4 class="date">22 February 2022</h4>
 
 </div>
 
@@ -556,6 +556,15 @@ instead of 0 to ensure low counts are not exported</li>
 <div id="releasing-output" class="section level4">
 <h4>Releasing output</h4>
 <ul>
+<li>Ensure your outputs are in the correct formats
+<ul>
+<li><code>.csv</code> (not <code>.rds</code> or <code>.Rdata</code>) for
+tables of data</li>
+<li><code>.txt</code> or <code>.html</code> if you want to view them in
+L4</li>
+</ul></li>
+<li>Ensure your outputs are marked as <code>moderately_sensitive</code>
+in your <code>project.yaml</code></li>
 <li>To release an output, please complete the ‘Output files for review’
 section of <a href="https://docs.opensafely.org/documents/OpenSAFELY_Output_Review_Form_15_11_21.docx">this
 form</a> and email to your assigned Bristol L4 access person</li>
