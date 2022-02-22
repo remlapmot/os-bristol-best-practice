@@ -143,6 +143,10 @@ All outputs for release should be classified as `moderately_sensitive` in action
 
 #### Releasing output
 
+- Ensure your outputs are in the correct formats 
+  - `.csv` (not `.rds` or `.Rdata`) for tables of data
+  - `.txt` or `.html` if you want to view them in L4
+- Ensure your outputs are marked as `moderately_sensitive` in your `project.yaml`
 - To release an output, please complete the 'Output files for review' section of [this form](https://docs.opensafely.org/documents/OpenSAFELY_Output_Review_Form_15_11_21.docx) and email to your assigned Bristol L4 access person
 - Bristol L4 access people will check the output on the server on your behalf, complete the rest of the form (including files locations), and email to datarelease@opensafely.org for final approval
 
