@@ -1,0 +1,44 @@
+---
+pagetitle: study-definition
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Study definition
+
+## Reproducibile dummy data
+
+- To ensure the dummy data system generates exactly the same data every time you run it, set a random number generator seed at the top of the `study_definition.py` file
+
+    ``` python
+    import numpy as np
+    np.random.seed(123456) # change this number to one for which your scripts successfully run on the dummy data
+    ```
+
+## File formats
+
+- Use `.feather` files for outputs from the cohortextractor, so specify an action in your `project.yaml` as follows
+
+    ``` yaml
+    generate_study_population:
+      run: cohortextractor:latest generate_cohort --study-definition study_definition --output-format feather
+     needs: 
+      - design
+      outputs:
+        highly_sensitive:
+          cohort: output/input.feather
+    ```  
+- Use the **arrow** package to read `.feather` files into R 
+  
+    ``` r
+    arrow::read_feather(file = file.path("output", "input.feather"))
+    ```  
+  - The `col_select` argument can be used to read in just the columns you need   
+
+- Start each project with a preprocessing action that formats `.feather` files and outputs (gzipped) `.rds` files which can be saved with `readr::write_rds()`
+  
+    ``` r
+    readr::write_rds(object, file.path("output", "mydata.rds"), compress = "gz")
+    ```  
