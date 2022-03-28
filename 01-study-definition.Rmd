@@ -1,5 +1,5 @@
 ---
-pagetitle: study-definition
+pagetitle: "UoB OpenSAFELY - Study definition"
 ---
 
 ```{r setup, include=FALSE}

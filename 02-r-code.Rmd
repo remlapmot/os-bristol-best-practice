@@ -1,5 +1,5 @@
 ---
-pagetitle: r-code
+pagetitle: "UoB OpenSAFELY - R code"
 ---
 
 ```{r setup, include=FALSE}

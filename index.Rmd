@@ -2,7 +2,7 @@
 title: "University of Bristol OpenSAFELY Best Practice"
 author: Tom Palmer, Elsie Horne, Venexia Walker
 date: "`r format(Sys.time(), '%d %B %Y')`"
-pagetitle: index
+pagetitle: "UoB OpenSAFELY - Home"
 ---
 
 ```{r setup, include=FALSE}

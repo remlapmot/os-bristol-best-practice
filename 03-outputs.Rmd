@@ -1,5 +1,5 @@
 ---
-pagetitle: outputs
+pagetitle: "UoB OpenSAFELY - Outputs for release"
 ---
 
 ```{r setup, include=FALSE}
