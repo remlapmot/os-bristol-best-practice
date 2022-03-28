@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>outputs</title>
+
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="01-study-definition.html">Study definition</a>
+</li>
+<li>
+  <a href="02-r-code.html">R code</a>
+</li>
+<li>
+  <a href="03-outputs.html">Outputs for release</a>
+</li>
+<li>
+  <a href="04-misc.html">Miscellaneous topics</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/remlapmot/os-bristol-best-practice">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="outputs-for-release" class="section level1">
+<h1>Outputs for release</h1>
+<p>All outputs for release should be classified as
+<code>moderately_sensitive</code> in actions. OpenSAFELY does not permit
+information relating to between 1 and less than 5 individuals to be
+released. Redaction functions are available from other users to help you
+prepare your output.</p>
+<div id="tables" class="section level2">
+<h2>Tables</h2>
+<ul>
+<li><p>Use <code>readr::write_csv()</code> to save <code>.csv</code>
+files that will be sent to output checkers (this is about twice as fast
+as <code>utils::write.csv()</code> and does not write row names).</p>
+<pre class="r"><code>readr::write_csv(object, file = file.path(&quot;output&quot;, &quot;mydata.csv&quot;))</code></pre></li>
+<li><p>Do not save outputs to subdirectories of the <code>output</code>
+folder, otherwise running the study definition on GitHub Actions will
+probably fail with an error message such as<br />
+<img src="img/output-subdir-error.png" width="316" /></p>
+<pre><code>Error in file(file, ifelse(append, &quot;a&quot;, &quot;w&quot;)) : 
+   cannot open the connection
+ Calls: write.csv -&gt; eval.parent -&gt; eval -&gt; eval -&gt; write.table -&gt; file
+ In addition: Warning message:
+ In file(file, ifelse(append, &quot;a&quot;, &quot;w&quot;)) :
+   cannot open file &#39;/workspace/output/descriptive/tables/table1.csv&#39;: No such file or directory
+ Backtrace:
+ 1: file(file, ifelse(append, &quot;a&quot;, &quot;w&quot;))
+ 2: write.table(table1_all$table_body, here::here(&quot;output&quot;, &quot;descriptive&quot;, 
+ 3: eval(expr, p)
+ 4: eval(expr, p)
+ 5: eval.parent(Call)
+ 6: write.csv(table1_all$table_body, here::here(&quot;output&quot;, &quot;descriptive&quot;,
+
+Error: Process completed with exit code 1.</code></pre></li>
+</ul>
+</div>
+<div id="figures" class="section level2">
+<h2>Figures</h2>
+<ul>
+<li>Use <code>.svg</code> for figure outputs that will be sent to output
+checkers</li>
+<li>Where applicable (e.g., histograms), start the <em>x</em>-axis at 5
+instead of 0 to ensure low counts are not exported</li>
+</ul>
+</div>
+<div id="releasing-output" class="section level2">
+<h2>Releasing output</h2>
+<ul>
+<li>Ensure your outputs are in the correct formats
+<ul>
+<li><code>.csv</code> (not <code>.rds</code> or <code>.Rdata</code>) for
+tables of data</li>
+<li><code>.txt</code> or <code>.html</code> if you want to view them in
+L4</li>
+</ul></li>
+<li>Ensure your outputs are marked as <code>moderately_sensitive</code>
+in your <code>project.yaml</code></li>
+<li>To release an output, please complete the ‘Output files for review’
+section of <a
+href="https://docs.opensafely.org/documents/OpenSAFELY_Output_Review_Form_15_11_21.docx">this
+form</a> and email to your assigned Bristol L4 access person</li>
+<li>Bristol L4 access people will check the output on the server on your
+behalf, complete the rest of the form (including files locations), and
+email to <a href="mailto:datarelease@opensafely.org"
+class="email">datarelease@opensafely.org</a> for final approval</li>
+</ul>
+<!--
+## Jupyter and Rmd notebooks
+
+- If you use a Jupyter notebook create a folder called `notebooks` at the top level of your repo
+  - Only use Python code chunks within the notebook
+  - The action to compile the notebook will be of the form
+
+    ``` yaml
+      generate_notebook:
+        run: jupyter:latest jupyter nbconvert /workspace/analysis/report.ipynb --execute --to html --template basic --output-dir=/workspace/output --ExecutePreprocessor.timeout=86400 --no-input
+        needs:
+        outputs:
+          moderately_sensitive:
+            notebook: output/report.html
+    ```
+
+- If you use an R Markdown notebook within your repo create a folder called `rmarkdown` at the top level of the repo
+  - In the YAML header of the .Rmd file define the output type as `output: html_document`
+  - Write a separate .R script that runs a single command 
+  
+    ``` r
+    rmarkdown::render('myrmdfile.Rmd', encoding = 'UTF-8') 
+    ```  
+  - And write an `r` action to run the script which will produce the .html output file
+-->
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
