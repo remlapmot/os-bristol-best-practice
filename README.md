@@ -2,8 +2,11 @@
 
 Rendered at https://remlapmot.github.io/os-bristol-best-practice/
 
-- To generate the index.html output in RStudio open index.Rmd and either click the `Knit` button; or run the following in the R Console
+To build the website either
 
-    ``` r
-    rmarkdown::render('index.Rmd', encoding = 'UTF-8')  
+- open the project in RStudio, go to the *Build* pane and click *Build Website*
+- or, run in R
+
+    ```r
+    rmarkdown::render_site(encoding = 'UTF-8')
     ```
