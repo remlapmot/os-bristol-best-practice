@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>University of Bristol OpenSAFELY Best Practice</title>
-  <meta name="description" content="University of Bristol OpenSAFELY Best Practice" />
+  <title>Study definition | University of Bristol OpenSAFELY Best Practice</title>
+  <meta name="description" content="Study definition | University of Bristol OpenSAFELY Best Practice" />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="University of Bristol OpenSAFELY Best Practice" />
+  <meta property="og:title" content="Study definition | University of Bristol OpenSAFELY Best Practice" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="University of Bristol OpenSAFELY Best Practice" />
+  <meta name="twitter:title" content="Study definition | University of Bristol OpenSAFELY Best Practice" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="study-definition.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="r-code.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -174,24 +174,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">University of Bristol OpenSAFELY Best Practice</h1>
-<p class="author"><em>Tom Palmer, Elsie Horne, Venexia Walker</em></p>
-<p class="date"><em>30 March 2022</em></p>
+<div id="study-definition" class="section level1 hasAnchor">
+<h1>Study definition<a href="study-definition.html#study-definition" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="reproducibile-dummy-data" class="section level2 hasAnchor">
+<h2>Reproducibile dummy data<a href="study-definition.html#reproducibile-dummy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>To ensure the dummy data system generates exactly the same data every time you run it, set a random number generator seed at the top of the <code>study_definition.py</code> file</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="study-definition.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="study-definition.html#cb1-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123456</span>) <span class="co"># change this number to one for which your scripts successfully run on the dummy data</span></span></code></pre></div></li>
+</ul>
 </div>
-<div id="introduction" class="section level1 hasAnchor">
-<h1>Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The following is intended as a set of tips for users of the <a href="https://www.opensafely.org/">OpenSAFELY</a> system at the University of Bristol.</p>
-<p>Please use the menu to the left to read the different sections.</p>
+<div id="file-formats" class="section level2 hasAnchor">
+<h2>File formats<a href="study-definition.html#file-formats" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Use <code>.feather</code> files for outputs from the cohortextractor, so specify an action in your <code>project.yaml</code> as follows</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="study-definition.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">generate_study_population</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="study-definition.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> cohortextractor:latest generate_cohort --study-definition study_definition --output-format feather</span></span>
+<span id="cb2-3"><a href="study-definition.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at"> </span><span class="fu">needs</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb2-4"><a href="study-definition.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> design</span></span>
+<span id="cb2-5"><a href="study-definition.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">outputs</span><span class="kw">:</span></span>
+<span id="cb2-6"><a href="study-definition.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">highly_sensitive</span><span class="kw">:</span></span>
+<span id="cb2-7"><a href="study-definition.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">cohort</span><span class="kw">:</span><span class="at"> output/input.feather</span></span></code></pre></div></li>
+<li><p>Use the <strong>arrow</strong> package to read <code>.feather</code> files into R</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="study-definition.html#cb3-1" aria-hidden="true" tabindex="-1"></a>arrow<span class="sc">::</span><span class="fu">read_feather</span>(<span class="at">file =</span> <span class="fu">file.path</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;input.feather&quot;</span>))</span></code></pre></div>
+<ul>
+<li>The <code>col_select</code> argument can be used to read in just the columns you need</li>
+</ul></li>
+<li><p>Start each project with a preprocessing action that formats <code>.feather</code> files and outputs (gzipped) <code>.rds</code> files which can be saved with <code>readr::write_rds()</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="study-definition.html#cb4-1" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_rds</span>(object, <span class="fu">file.path</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;mydata.rds&quot;</span>), <span class="at">compress =</span> <span class="st">&quot;gz&quot;</span>)</span></code></pre></div></li>
+</ul>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="study-definition.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -212,7 +233,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/remlapmot/os-bristol-best-practice/edit/main/index.Rmd",
+"link": "https://github.com/remlapmot/os-bristol-best-practice/edit/main/01-study-definition.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -220,7 +241,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/remlapmot/os-bristol-best-practice/blob/main/index.Rmd",
+"link": "https://github.com/remlapmot/os-bristol-best-practice/blob/main/01-study-definition.Rmd",
 "text": null
 },
 "download": null,

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>University of Bristol OpenSAFELY Best Practice</title>
-  <meta name="description" content="University of Bristol OpenSAFELY Best Practice" />
+  <title>Outputs for release | University of Bristol OpenSAFELY Best Practice</title>
+  <meta name="description" content="Outputs for release | University of Bristol OpenSAFELY Best Practice" />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="University of Bristol OpenSAFELY Best Practice" />
+  <meta property="og:title" content="Outputs for release | University of Bristol OpenSAFELY Best Practice" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="University of Bristol OpenSAFELY Best Practice" />
+  <meta name="twitter:title" content="Outputs for release | University of Bristol OpenSAFELY Best Practice" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="study-definition.html"/>
+<link rel="prev" href="r-code.html"/>
+<link rel="next" href="miscellaneous.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -174,24 +174,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">University of Bristol OpenSAFELY Best Practice</h1>
-<p class="author"><em>Tom Palmer, Elsie Horne, Venexia Walker</em></p>
-<p class="date"><em>30 March 2022</em></p>
-</div>
-<div id="introduction" class="section level1 hasAnchor">
-<h1>Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The following is intended as a set of tips for users of the <a href="https://www.opensafely.org/">OpenSAFELY</a> system at the University of Bristol.</p>
-<p>Please use the menu to the left to read the different sections.</p>
+<div id="outputs-for-release" class="section level1 hasAnchor">
+<h1>Outputs for release<a href="outputs-for-release.html#outputs-for-release" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>All outputs for release should be classified as <code>moderately_sensitive</code> in actions. OpenSAFELY does not permit information relating to between 1 and less than 5 individuals to be released. Redaction functions are available from other users to help you prepare your output.</p>
+<div id="tables" class="section level2 hasAnchor">
+<h2>Tables<a href="outputs-for-release.html#tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Use <code>readr::write_csv()</code> to save <code>.csv</code> files that will be sent to output checkers (this is about twice as fast as <code>utils::write.csv()</code> and does not write row names).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="outputs-for-release.html#cb6-1" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(object, <span class="at">file =</span> <span class="fu">file.path</span>(<span class="st">&quot;output&quot;</span>, <span class="st">&quot;mydata.csv&quot;</span>))</span></code></pre></div></li>
+<li><p>Do not save outputs to subdirectories of the <code>output</code> folder, otherwise running the study definition on GitHub Actions will probably fail with an error message such as<br />
+<img src="img/output-subdir-error.png" /><!-- --></p>
+<pre><code>Error in file(file, ifelse(append, &quot;a&quot;, &quot;w&quot;)) : 
+   cannot open the connection
+ Calls: write.csv -&gt; eval.parent -&gt; eval -&gt; eval -&gt; write.table -&gt; file
+ In addition: Warning message:
+ In file(file, ifelse(append, &quot;a&quot;, &quot;w&quot;)) :
+   cannot open file &#39;/workspace/output/descriptive/tables/table1.csv&#39;: No such file or directory
+ Backtrace:
+ 1: file(file, ifelse(append, &quot;a&quot;, &quot;w&quot;))
+ 2: write.table(table1_all$table_body, here::here(&quot;output&quot;, &quot;descriptive&quot;, 
+ 3: eval(expr, p)
+ 4: eval(expr, p)
+ 5: eval.parent(Call)
+ 6: write.csv(table1_all$table_body, here::here(&quot;output&quot;, &quot;descriptive&quot;,
 
+Error: Process completed with exit code 1.</code></pre></li>
+</ul>
+</div>
+<div id="figures" class="section level2 hasAnchor">
+<h2>Figures<a href="outputs-for-release.html#figures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Use <code>.svg</code> for figure outputs that will be sent to output checkers</li>
+<li>Where applicable (e.g., histograms), start the <em>x</em>-axis at 5 instead of 0 to ensure low counts are not exported</li>
+</ul>
+</div>
+<div id="releasing-output" class="section level2 hasAnchor">
+<h2>Releasing output<a href="outputs-for-release.html#releasing-output" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Ensure your outputs are in the correct formats
+<ul>
+<li><code>.csv</code> (not <code>.rds</code> or <code>.Rdata</code>) for tables of data</li>
+<li><code>.txt</code> or <code>.html</code> if you want to view them in L4</li>
+</ul></li>
+<li>Ensure your outputs are marked as <code>moderately_sensitive</code> in your <code>project.yaml</code></li>
+<li>To release an output, please complete the ‘Output files for review’ section of <a href="https://docs.opensafely.org/documents/OpenSAFELY_Output_Review_Form_15_11_21.docx">this form</a> and email to your assigned Bristol L4 access person</li>
+<li>Bristol L4 access people will check the output on the server on your behalf, complete the rest of the form (including files locations), and email to <a href="mailto:datarelease@opensafely.org" class="email">datarelease@opensafely.org</a> for final approval</li>
+</ul>
+<!--
+## Jupyter and Rmd notebooks
+
+- If you use a Jupyter notebook create a folder called `notebooks` at the top level of your repo
+  - Only use Python code chunks within the notebook
+  - The action to compile the notebook will be of the form
+
+    ``` yaml
+      generate_notebook:
+        run: jupyter:latest jupyter nbconvert /workspace/analysis/report.ipynb --execute --to html --template basic --output-dir=/workspace/output --ExecutePreprocessor.timeout=86400 --no-input
+        needs:
+        outputs:
+          moderately_sensitive:
+            notebook: output/report.html
+    ```
+
+- If you use an R Markdown notebook within your repo create a folder called `rmarkdown` at the top level of the repo
+  - In the YAML header of the .Rmd file define the output type as `output: html_document`
+  - Write a separate .R script that runs a single command 
+  
+    ``` r
+    rmarkdown::render('myrmdfile.Rmd', encoding = 'UTF-8') 
+    ```  
+  - And write an `r` action to run the script which will produce the .html output file
+-->
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="study-definition.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-code.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="miscellaneous.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -212,7 +275,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/remlapmot/os-bristol-best-practice/edit/main/index.Rmd",
+"link": "https://github.com/remlapmot/os-bristol-best-practice/edit/main/03-outputs.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -220,7 +283,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/remlapmot/os-bristol-best-practice/blob/main/index.Rmd",
+"link": "https://github.com/remlapmot/os-bristol-best-practice/blob/main/03-outputs.Rmd",
 "text": null
 },
 "download": null,

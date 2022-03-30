@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>University of Bristol OpenSAFELY Best Practice</title>
-  <meta name="description" content="University of Bristol OpenSAFELY Best Practice" />
+  <title>Miscellaneous | University of Bristol OpenSAFELY Best Practice</title>
+  <meta name="description" content="Miscellaneous | University of Bristol OpenSAFELY Best Practice" />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="University of Bristol OpenSAFELY Best Practice" />
+  <meta property="og:title" content="Miscellaneous | University of Bristol OpenSAFELY Best Practice" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="University of Bristol OpenSAFELY Best Practice" />
+  <meta name="twitter:title" content="Miscellaneous | University of Bristol OpenSAFELY Best Practice" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="outputs-for-release.html"/>
 
-<link rel="next" href="study-definition.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -174,15 +174,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">University of Bristol OpenSAFELY Best Practice</h1>
-<p class="author"><em>Tom Palmer, Elsie Horne, Venexia Walker</em></p>
-<p class="date"><em>30 March 2022</em></p>
-</div>
-<div id="introduction" class="section level1 hasAnchor">
-<h1>Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The following is intended as a set of tips for users of the <a href="https://www.opensafely.org/">OpenSAFELY</a> system at the University of Bristol.</p>
-<p>Please use the menu to the left to read the different sections.</p>
+<div id="miscellaneous" class="section level1 hasAnchor">
+<h1>Miscellaneous<a href="miscellaneous.html#miscellaneous" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<ul>
+<li>Text files should end with a newline character (i.e., a blank line)
+<ul>
+<li>If you see the following red icon at the end of a file on GitHub, simply press <kbd>↵ Enter</kbd> at the end of the file (i.e., in this case after the <code>Catalog</code>), resave, commit, and the red icon should be gone<br />
+<img src="img/endoffile-newline-missing.png" /><!-- --></li>
+</ul></li>
+<li>Python and R versions
+<ul>
+<li><p>The versions of Python and R in their respective OpenSAFELY Docker containers are (as of 1<sup>st</sup> December 2021):</p>
+<ul>
+<li>Python 3.8.10</li>
+<li>R 4.0.2</li>
+</ul></li>
+<li><p>The Python and R code run within their respective Docker containers. Hence the version of Python and R used to run your analyses are the versions of Python and R in these Docker containers and <em>not</em> the versions of Python and R on your computer</p></li>
+<li><p>To see the Python version number insert in your <code>study_definition.py</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="miscellaneous.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb8-2"><a href="miscellaneous.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.implementation.version)</span></code></pre></div></li>
+<li><p>To see the R version number insert into one of your R analysis scripts</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="miscellaneous.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(R.version.string)</span></code></pre></div></li>
+</ul></li>
+</ul>
 
 </div>
             </section>
@@ -190,8 +204,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
+<a href="outputs-for-release.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="study-definition.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -212,7 +226,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/remlapmot/os-bristol-best-practice/edit/main/index.Rmd",
+"link": "https://github.com/remlapmot/os-bristol-best-practice/edit/main/04-misc.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -220,7 +234,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/remlapmot/os-bristol-best-practice/blob/main/index.Rmd",
+"link": "https://github.com/remlapmot/os-bristol-best-practice/blob/main/04-misc.Rmd",
 "text": null
 },
 "download": null,
