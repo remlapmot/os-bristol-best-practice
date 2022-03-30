@@ -1,12 +1,8 @@
----
-pagetitle: "UoB OpenSAFELY - R code"
----
+# R code
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
-# R code
 
 ## File formats
 

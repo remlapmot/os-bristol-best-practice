@@ -1,12 +1,8 @@
----
-pagetitle: "UoB OpenSAFELY - Study definition"
----
+# Study definition
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
-# Study definition
 
 ## Reproducibile dummy data
 
