@@ -30,9 +30,9 @@
 
 - Define your repo as an RStudio project in RStudio as follows
   - File | New Project...  
-    ![](img/rstudio-newproject-1.png)<!-- -->
+    <img src="img/rstudio-newproject-1.png" width="468" />
   - Existing Directory  
-    ![](img/rstudio-newproject-2.png)<!-- -->
+    <img src="img/rstudio-newproject-2.png" width="538" />
   - Then find your repo
   - This will create a `.Rproj` file at the top level of your repo
   - Commit the file into your repo

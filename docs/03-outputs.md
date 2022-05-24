@@ -12,7 +12,7 @@ All outputs for release should be classified as `moderately_sensitive` in action
     readr::write_csv(object, file = file.path("output", "mydata.csv"))
     ```  
   - Do not save outputs to subdirectories of the `output` folder, otherwise running the study definition on GitHub Actions will probably fail with an error message such as  
-    ![](img/output-subdir-error.png)<!-- -->
+    <img src="img/output-subdir-error.png" width="316" />
     ```
     Error in file(file, ifelse(append, "a", "w")) : 
        cannot open the connection

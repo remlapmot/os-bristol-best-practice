@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Miscellaneous | University of Bristol OpenSAFELY Best Practice</title>
   <meta name="description" content="Miscellaneous | University of Bristol OpenSAFELY Best Practice" />
-  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Miscellaneous | University of Bristol OpenSAFELY Best Practice" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,6 @@
 <meta name="author" content="Tom Palmer, Elsie Horne, Venexia Walker" />
 
 
-<meta name="date" content="2022-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +30,7 @@
   
   
 <link rel="prev" href="outputs-for-release.html"/>
-
+<link rel="next" href="session-info-for-reproducibilty.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -135,25 +134,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Table of Contents</a></li>
 
 <li class="divider"></li>
-<li><a href="index.html#introduction">Introduction<span></span></a></li>
-<li><a href="study-definition.html#study-definition">Study definition<span></span></a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="study-definition.html"><a href="study-definition.html"><i class="fa fa-check"></i>Study definition</a>
 <ul>
-<li><a href="study-definition.html#reproducibile-dummy-data">Reproducibile dummy data<span></span></a></li>
-<li><a href="study-definition.html#file-formats">File formats<span></span></a></li>
+<li class="chapter" data-level="" data-path="study-definition.html"><a href="study-definition.html#reproducibile-dummy-data"><i class="fa fa-check"></i>Reproducibile dummy data</a></li>
+<li class="chapter" data-level="" data-path="study-definition.html"><a href="study-definition.html#file-formats"><i class="fa fa-check"></i>File formats</a></li>
 </ul></li>
-<li><a href="r-code.html#r-code">R code<span></span></a>
+<li class="chapter" data-level="" data-path="r-code.html"><a href="r-code.html"><i class="fa fa-check"></i>R code</a>
 <ul>
-<li><a href="r-code.html#file-formats-1">File formats<span></span></a></li>
-<li><a href="r-code.html#supported-packages">Supported packages<span></span></a></li>
-<li><a href="r-code.html#rstudio-project">RStudio project<span></span></a></li>
+<li class="chapter" data-level="" data-path="r-code.html"><a href="r-code.html#file-formats-1"><i class="fa fa-check"></i>File formats</a></li>
+<li class="chapter" data-level="" data-path="r-code.html"><a href="r-code.html#supported-packages"><i class="fa fa-check"></i>Supported packages</a></li>
+<li class="chapter" data-level="" data-path="r-code.html"><a href="r-code.html#rstudio-project"><i class="fa fa-check"></i>RStudio project</a></li>
 </ul></li>
-<li><a href="outputs-for-release.html#outputs-for-release">Outputs for release<span></span></a>
+<li class="chapter" data-level="" data-path="outputs-for-release.html"><a href="outputs-for-release.html"><i class="fa fa-check"></i>Outputs for release</a>
 <ul>
-<li><a href="outputs-for-release.html#tables">Tables<span></span></a></li>
-<li><a href="outputs-for-release.html#figures">Figures<span></span></a></li>
-<li><a href="outputs-for-release.html#releasing-output">Releasing output<span></span></a></li>
+<li class="chapter" data-level="" data-path="outputs-for-release.html"><a href="outputs-for-release.html#tables"><i class="fa fa-check"></i>Tables</a></li>
+<li class="chapter" data-level="" data-path="outputs-for-release.html"><a href="outputs-for-release.html#figures"><i class="fa fa-check"></i>Figures</a></li>
+<li class="chapter" data-level="" data-path="outputs-for-release.html"><a href="outputs-for-release.html#releasing-output"><i class="fa fa-check"></i>Releasing output</a></li>
 </ul></li>
-<li><a href="miscellaneous.html#miscellaneous">Miscellaneous<span></span></a></li>
+<li class="chapter" data-level="" data-path="miscellaneous.html"><a href="miscellaneous.html"><i class="fa fa-check"></i>Miscellaneous</a></li>
+<li class="chapter" data-level="" data-path="session-info-for-reproducibilty.html"><a href="session-info-for-reproducibilty.html"><i class="fa fa-check"></i>Session info for reproducibilty</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -180,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Text files should end with a newline character (i.e., a blank line)
 <ul>
 <li>If you see the following red icon at the end of a file on GitHub, simply press <kbd>↵ Enter</kbd> at the end of the file (i.e., in this case after the <code>Catalog</code>), resave, commit, and the red icon should be gone<br />
-<img src="img/endoffile-newline-missing.png" /><!-- --></li>
+<img src="img/endoffile-newline-missing.png" width="342" /></li>
 </ul></li>
 <li>Python and R versions
 <ul>
@@ -204,8 +204,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="outputs-for-release.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="outputs-for-release.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="session-info-for-reproducibilty.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
