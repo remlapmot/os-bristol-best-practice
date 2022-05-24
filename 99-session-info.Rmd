@@ -1,0 +1,5 @@
+# Session info for reproducibilty
+
+```{r}
+sessioninfo::session_info()
+```
