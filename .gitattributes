@@ -6,3 +6,4 @@
 
 # Include .Rmd files in Languages pane statistics
 *.[Rr]md linguist-detectable
+*.[Qq]md linguist-detectable
