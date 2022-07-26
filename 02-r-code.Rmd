@@ -12,7 +12,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
     ``` r
     object <- readr::read_rds(file.path("output", "mydata.rds"))
-    readr::write_rds(object, file.path("output", "mydata.rds"), compress = "gz")
+    readr::write_rds(object, 
+                     file.path("output", "mydata.rds"),
+                     compress = "gz")
     ```  
     
 <!--
