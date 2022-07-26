@@ -4,6 +4,7 @@ project:
 
 book:
   title: University of Bristol OpenSAFELY Best Practice
+  author: "Tom Palmer, Elsie Horne, Venexia Walker"
   chapters:
     - index.Rmd
     - 01-study-definition.Rmd

@@ -1,5 +1,4 @@
 ---
-author: Tom Palmer, Elsie Horne, Venexia Walker
 date: "Last built on `r format(Sys.time(), '%d %B %Y')`"
 ---
 
