@@ -2,11 +2,35 @@
 
 Rendered at https://remlapmot.github.io/os-bristol-best-practice/
 
-To build the website either
+To build/render the html output open the project in RStudio and either
 
-- open the project in RStudio, go to the *Build* pane and click *Build Website*
-- or, run in R
+* open the *Build* pane click the *Render Website* button
+* or, run in R
 
-    ```r
-    rmarkdown::render_site(encoding = 'UTF-8')
-    ```
+```r
+# install.packages('quarto')
+quarto::quarto_render()
+```
+
+Or at the command line
+
+```bash
+quarto render
+```
+
+When editing the project preview with
+
+```r
+quarto::quarto_preview()
+```
+
+or 
+
+```bash
+quarto preview
+```
+And stop the process with <kbd>Ctrl</kbd>+<kbd>C</kbd> or with
+
+```r
+quarto::quarto_preview_stop()
+```
