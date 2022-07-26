@@ -1,15 +1,13 @@
 ---
-title: "University of Bristol OpenSAFELY Best Practice"
 author: Tom Palmer, Elsie Horne, Venexia Walker
 date: "Last built on `r format(Sys.time(), '%d %B %Y')`"
-site: bookdown::bookdown_site
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Introduction
+## Introduction {.unnumbered}
 
 The following is intended as a set of tips for users of the [OpenSAFELY](https://www.opensafely.org/) system at the University of Bristol.
 
