@@ -1,4 +1,6 @@
-# Session info for reproducibilty
+# Session information
+
+For reproducibilty.
 
 ```{r}
 sessioninfo::session_info()
