@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>University of Bristol OpenSAFELY Best Practice - 4&nbsp; Miscellaneous</title>
+<title>University of Bristol OpenSAFELY Best Practice - 5&nbsp; Session information</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,8 +88,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./99-session-info.html" rel="next">
-<link href="./03-outputs.html" rel="prev">
+<link href="./04-misc.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -129,7 +128,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Miscellaneous</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Session information</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -177,12 +176,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-misc.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Miscellaneous</span></a>
+  <a href="./04-misc.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Miscellaneous</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./99-session-info.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Session information</span></a>
+  <a href="./99-session-info.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Session information</span></a>
   </div>
 </li>
     </ul>
@@ -197,7 +196,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Miscellaneous</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Session information</span></h1>
 </div>
 
 
@@ -211,31 +210,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<ul>
-<li>Text files should end with a newline character (i.e., a blank line)
-<ul>
-<li><p>If you see the following red icon at the end of a file on GitHub, simply press <kbd>↵&nbsp;Enter</kbd> at the end of the file (i.e., in this case after the word <em>Catalog</em>), resave, commit, and the red icon should be gone</p>
+<p>For reproducibilty.</p>
 <div class="cell">
-<div class="cell-output-display">
-<p><img src="img/endoffile-newline-missing.png" class="img-fluid" width="342"></p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.2.1 (2022-06-23)
+ os       macOS Monterey 12.5
+ system   aarch64, darwin20
+ ui       X11
+ language (EN)
+ collate  en_GB.UTF-8
+ ctype    en_GB.UTF-8
+ tz       Europe/London
+ date     2022-07-26
+ pandoc   2.18 @ /opt/homebrew/bin/ (via rmarkdown)
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ cli           3.3.0   2022-04-25 [3] CRAN (R 4.2.0)
+ digest        0.6.29  2021-12-01 [3] CRAN (R 4.2.0)
+ evaluate      0.15    2022-02-18 [3] CRAN (R 4.2.0)
+ fastmap       1.1.0   2021-01-25 [3] CRAN (R 4.2.0)
+ htmltools     0.5.3   2022-07-18 [3] CRAN (R 4.2.1)
+ htmlwidgets   1.5.4   2021-09-08 [3] CRAN (R 4.2.0)
+ jsonlite      1.8.0   2022-02-22 [3] CRAN (R 4.2.0)
+ knitr         1.39    2022-04-26 [3] CRAN (R 4.2.0)
+ magrittr      2.0.3   2022-03-30 [3] CRAN (R 4.2.0)
+ rlang         1.0.4   2022-07-12 [3] CRAN (R 4.2.1)
+ rmarkdown     2.14    2022-04-25 [3] CRAN (R 4.2.0)
+ sessioninfo   1.2.2   2021-12-06 [3] CRAN (R 4.2.0)
+ stringi       1.7.8   2022-07-11 [3] CRAN (R 4.2.1)
+ stringr       1.4.0   2019-02-10 [3] CRAN (R 4.2.0)
+ xfun          0.31    2022-05-10 [3] CRAN (R 4.2.0)
+
+ [1] /Users/tom/Library/R/arm64/4.2/library
+ [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/site-library
+ [3] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
 </div>
-</div></li>
-</ul></li>
-<li>Python and R versions
-<ul>
-<li><p>The versions of Python and R in their respective OpenSAFELY Docker containers are (as of 26<sup>th</sup> July 2022):</p>
-<ul>
-<li>Python 3.8.10</li>
-<li>R 4.0.2</li>
-</ul></li>
-<li><p>The Python and R code run within their respective Docker containers. Hence the version of Python and R used to run your analyses are the versions of Python and R in these Docker containers and <em>not</em> the versions of Python and R on your computer</p></li>
-<li><p>To see the Python version number insert in your <code>study_definition.py</code></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.implementation.version)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>To see the R version number insert into one of your R analysis scripts</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(R.version.string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-</ul>
+</div>
 
 
 
@@ -353,14 +369,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-outputs.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Outputs for release</span></span>
+      <a href="./04-misc.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Miscellaneous</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./99-session-info.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Session information</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

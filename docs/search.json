@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "University of Bristol OpenSAFELY Best Practice",
+    "section": "",
+    "text": "The following is intended as a set of tips for users of the OpenSAFELY system at the University of Bristol.\nPlease use the menu to the left to read the different sections."
+  },
+  {
+    "objectID": "01-study-definition.html",
+    "href": "01-study-definition.html",
+    "title": "1  Study definition",
+    "section": "",
+    "text": "To ensure the dummy data system generates exactly the same data every time you run it, set a random number generator seed at the top of the study_definition.py file\nimport numpy as np\n# Change this number to one for which your scripts \n# successfully run on the dummy data\nnp.random.seed(123456)"
+  },
+  {
+    "objectID": "01-study-definition.html#file-formats",
+    "href": "01-study-definition.html#file-formats",
+    "title": "1  Study definition",
+    "section": "1.2 File formats",
+    "text": "1.2 File formats\n\nUse .feather files for outputs from the cohortextractor, so specify an action in your project.yaml as follows\ngenerate_study_population:\n  run: cohortextractor:latest generate_cohort --study-definition study_definition --output-format feather\n needs: \n  - design\n  outputs:\n    highly_sensitive:\n      cohort: output/input.feather\nUse the arrow package to read .feather files into R\narrow::read_feather(file = file.path(\"output\", \"input.feather\"))\n\nThe col_select argument can be used to read in just the columns you need\n\nStart each project with a preprocessing action that formats .feather files and outputs (gzipped) .rds files which can be saved with readr::write_rds()\nreadr::write_rds(object, \n                 file.path(\"output\", \"mydata.rds\"), \n                 compress = \"gz\")"
+  },
+  {
+    "objectID": "02-r-code.html",
+    "href": "02-r-code.html",
+    "title": "2  R code",
+    "section": "",
+    "text": "As per the study definition best practice, outputs from the cohortextractor should be provided as .rds files\nUse the readr package to read and write .rds files\nobject <- readr::read_rds(file.path(\"output\", \"mydata.rds\"))\nreadr::write_rds(object, \n                 file.path(\"output\", \"mydata.rds\"),\n                 compress = \"gz\")\n\n\n\nAll .rds files should all be classified as highly_sensitive in actions, as they cannot be opened on the results server and therefore cannot be reviewed or released.\nreadr::write_rds does not compress files by default. It is recommended that you compress .rds files using the argument compress = \"gz\".\nUse file.path to construct file paths that are reproducible across operating systems."
+  },
+  {
+    "objectID": "02-r-code.html#supported-packages",
+    "href": "02-r-code.html#supported-packages",
+    "title": "2  R code",
+    "section": "2.2 Supported packages",
+    "text": "2.2 Supported packages\n\nThe R packages (and their version number) which are installed in the OpenSAFELY R Docker container are listed here\nTo request a new package, which should be on CRAN, open a new issue here, including the link to its CRAN webpage"
+  },
+  {
+    "objectID": "02-r-code.html#rstudio-project",
+    "href": "02-r-code.html#rstudio-project",
+    "title": "2  R code",
+    "section": "2.3 RStudio project",
+    "text": "2.3 RStudio project\n\nDefine your repo as an RStudio project in RStudio as follows\n\nFile | New Project…\n\n\n\n\n\nExisting Directory\n\n\n\n\n\nThen find your repo\nThis will create a .Rproj file at the top level of your repo\nCommit the file into your repo\nNow you can double click the .Rproj file to open the repo in RStudio, so you can work on your R scripts more conveniently"
+  },
+  {
+    "objectID": "03-outputs.html",
+    "href": "03-outputs.html",
+    "title": "3  Outputs for release",
+    "section": "",
+    "text": "All outputs for release should be classified as moderately_sensitive in actions. OpenSAFELY does not permit information relating to between 1 and less than 5 individuals to be released. Redaction functions are available from other users to help you prepare your output."
+  },
+  {
+    "objectID": "03-outputs.html#tables",
+    "href": "03-outputs.html#tables",
+    "title": "3  Outputs for release",
+    "section": "3.1 Tables",
+    "text": "3.1 Tables\n\nUse readr::write_csv() to save .csv files that will be sent to output checkers (this is about twice as fast as utils::write.csv() and does not write row names).\nreadr::write_csv(object, \n                 file = file.path(\"output\", \"mydata.csv\"))\nDo not save outputs to subdirectories of the output folder, otherwise running the study definition on GitHub Actions will probably fail with an error message such as\n\n\n\n\n\nError in file(file, ifelse(append, \"a\", \"w\")) : \n   cannot open the connection\n Calls: write.csv -> eval.parent -> eval -> eval -> write.table -> file\n In addition: Warning message:\n In file(file, ifelse(append, \"a\", \"w\")) :\n   cannot open file '/workspace/output/descriptive/tables/table1.csv': No such file or directory\n Backtrace:\n 1: file(file, ifelse(append, \"a\", \"w\"))\n 2: write.table(table1_all$table_body, here::here(\"output\", \"descriptive\", \n 3: eval(expr, p)\n 4: eval(expr, p)\n 5: eval.parent(Call)\n 6: write.csv(table1_all$table_body, here::here(\"output\", \"descriptive\",\n\nError: Process completed with exit code 1."
+  },
+  {
+    "objectID": "03-outputs.html#figures",
+    "href": "03-outputs.html#figures",
+    "title": "3  Outputs for release",
+    "section": "3.2 Figures",
+    "text": "3.2 Figures\n\nUse .svg for figure outputs that will be sent to output checkers\nWhere applicable (e.g., histograms), start the x-axis at 5 instead of 0 to ensure low counts are not exported"
+  },
+  {
+    "objectID": "03-outputs.html#releasing-output",
+    "href": "03-outputs.html#releasing-output",
+    "title": "3  Outputs for release",
+    "section": "3.3 Releasing output",
+    "text": "3.3 Releasing output\n\nEnsure your outputs are in the correct formats\n\n.csv (not .rds or .Rdata) for tables of data\n.txt or .html if you want to view them in L4\n\nEnsure your outputs are marked as moderately_sensitive in your project.yaml\nTo release an output, please complete the ‘Output files for review’ section of this form and email to your assigned Bristol L4 access person\nBristol L4 access people will check the output on the server on your behalf, complete the rest of the form (including files locations), and email to datarelease@opensafely.org for final approval"
+  },
+  {
+    "objectID": "04-misc.html",
+    "href": "04-misc.html",
+    "title": "4  Miscellaneous",
+    "section": "",
+    "text": "Text files should end with a newline character (i.e., a blank line)\n\nIf you see the following red icon at the end of a file on GitHub, simply press ↵ Enter at the end of the file (i.e., in this case after the word Catalog), resave, commit, and the red icon should be gone\n\n\n\n\n\n\nPython and R versions\n\nThe versions of Python and R in their respective OpenSAFELY Docker containers are (as of 26th July 2022):\n\nPython 3.8.10\nR 4.0.2\n\nThe Python and R code run within their respective Docker containers. Hence the version of Python and R used to run your analyses are the versions of Python and R in these Docker containers and not the versions of Python and R on your computer\nTo see the Python version number insert in your study_definition.py\nimport sys\nprint(sys.implementation.version)\nTo see the R version number insert into one of your R analysis scripts\nprint(R.version.string)"
+  },
+  {
+    "objectID": "99-session-info.html",
+    "href": "99-session-info.html",
+    "title": "5  Session information",
+    "section": "",
+    "text": "sessioninfo::session_info()\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.2.1 (2022-06-23)\n os       macOS Monterey 12.5\n system   aarch64, darwin20\n ui       X11\n language (EN)\n collate  en_GB.UTF-8\n ctype    en_GB.UTF-8\n tz       Europe/London\n date     2022-07-26\n pandoc   2.18 @ /opt/homebrew/bin/ (via rmarkdown)\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n cli           3.3.0   2022-04-25 [3] CRAN (R 4.2.0)\n digest        0.6.29  2021-12-01 [3] CRAN (R 4.2.0)\n evaluate      0.15    2022-02-18 [3] CRAN (R 4.2.0)\n fastmap       1.1.0   2021-01-25 [3] CRAN (R 4.2.0)\n htmltools     0.5.3   2022-07-18 [3] CRAN (R 4.2.1)\n htmlwidgets   1.5.4   2021-09-08 [3] CRAN (R 4.2.0)\n jsonlite      1.8.0   2022-02-22 [3] CRAN (R 4.2.0)\n knitr         1.39    2022-04-26 [3] CRAN (R 4.2.0)\n magrittr      2.0.3   2022-03-30 [3] CRAN (R 4.2.0)\n rlang         1.0.4   2022-07-12 [3] CRAN (R 4.2.1)\n rmarkdown     2.14    2022-04-25 [3] CRAN (R 4.2.0)\n sessioninfo   1.2.2   2021-12-06 [3] CRAN (R 4.2.0)\n stringi       1.7.8   2022-07-11 [3] CRAN (R 4.2.1)\n stringr       1.4.0   2019-02-10 [3] CRAN (R 4.2.0)\n xfun          0.31    2022-05-10 [3] CRAN (R 4.2.0)\n\n [1] /Users/tom/Library/R/arm64/4.2/library\n [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/site-library\n [3] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library\n\n──────────────────────────────────────────────────────────────────────────────"
+  }
+]
