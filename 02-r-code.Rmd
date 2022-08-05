@@ -1,7 +1,7 @@
 # R code
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
 ```
 
 ## File formats

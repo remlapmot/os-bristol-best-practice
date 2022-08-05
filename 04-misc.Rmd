@@ -1,12 +1,12 @@
 # Miscellaneous
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
 ```
 
 - Text files should end with a newline character (i.e., a blank line)
   - If you see the following red icon at the end of a file on GitHub, simply press <kbd>`r knitr::asis_output('\U21B5')`&nbsp;Enter</kbd> at the end of the file (i.e., in this case after the word *Catalog*), resave, commit, and the red icon should be gone  
-    ```{r}
+    ```{r, out.width="100%"}
     knitr::include_graphics("img/endoffile-newline-missing.png")
     ```  
 - Python and R versions
