@@ -1,17 +1,17 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
     "title": "University of Bristol OpenSAFELY Best Practice",
-    "section": "",
-    "text": "The following is intended as a set of tips for users of the OpenSAFELY system at the University of Bristol.\nPlease use the menu to the left to read the different sections."
+    "section": "Introduction",
+    "text": "Introduction\nThe following is intended as a set of tips for users of the OpenSAFELY system at the University of Bristol.\nPlease use the menu to the left to read the different sections."
   },
   {
-    "objectID": "01-study-definition.html",
-    "href": "01-study-definition.html",
+    "objectID": "01-study-definition.html#reproducibile-dummy-data",
+    "href": "01-study-definition.html#reproducibile-dummy-data",
     "title": "1  Study definition",
-    "section": "",
-    "text": "To ensure the dummy data system generates exactly the same data every time you run it, set a random number generator seed at the top of the study_definition.py file\nimport numpy as np\n# Change this number to one for which your scripts \n# successfully run on the dummy data\nnp.random.seed(123456)"
+    "section": "1.1 Reproducibile dummy data",
+    "text": "1.1 Reproducibile dummy data\n\nTo ensure the dummy data system generates exactly the same data every time you run it, set a random number generator seed at the top of the study_definition.py file\nimport numpy as np\n# Change this number to one for which your scripts \n# successfully run on the dummy data\nnp.random.seed(123456)"
   },
   {
     "objectID": "01-study-definition.html#file-formats",
@@ -21,11 +21,11 @@
     "text": "1.2 File formats\n\nUse .feather files for outputs from the cohortextractor, so specify an action in your project.yaml as follows\ngenerate_study_population:\n  run: cohortextractor:latest generate_cohort --study-definition study_definition --output-format feather\n needs: \n  - design\n  outputs:\n    highly_sensitive:\n      cohort: output/input.feather\nUse the arrow package to read .feather files into R\narrow::read_feather(file = file.path(\"output\", \"input.feather\"))\n\nThe col_select argument can be used to read in just the columns you need\n\nStart each project with a preprocessing action that formats .feather files and outputs (gzipped) .rds files which can be saved with readr::write_rds()\nreadr::write_rds(object, \n                 file.path(\"output\", \"mydata.rds\"), \n                 compress = \"gz\")"
   },
   {
-    "objectID": "02-r-code.html",
-    "href": "02-r-code.html",
+    "objectID": "02-r-code.html#file-formats",
+    "href": "02-r-code.html#file-formats",
     "title": "2  R code",
-    "section": "",
-    "text": "As per the study definition best practice, outputs from the cohortextractor should be provided as .rds files\nUse the readr package to read and write .rds files\nobject <- readr::read_rds(file.path(\"output\", \"mydata.rds\"))\nreadr::write_rds(object, \n                 file.path(\"output\", \"mydata.rds\"),\n                 compress = \"gz\")\n\n\n\nAll .rds files should all be classified as highly_sensitive in actions, as they cannot be opened on the results server and therefore cannot be reviewed or released.\nreadr::write_rds does not compress files by default. It is recommended that you compress .rds files using the argument compress = \"gz\".\nUse file.path to construct file paths that are reproducible across operating systems."
+    "section": "2.1 File formats",
+    "text": "2.1 File formats\n\nAs per the study definition best practice, outputs from the cohortextractor should be provided as .rds files\nUse the readr package to read and write .rds files\nobject <- readr::read_rds(file.path(\"output\", \"mydata.rds\"))\nreadr::write_rds(object, \n                 file.path(\"output\", \"mydata.rds\"),\n                 compress = \"gz\")\n\n\n\nAll .rds files should all be classified as highly_sensitive in actions, as they cannot be opened on the results server and therefore cannot be reviewed or released.\nreadr::write_rds() does not compress files by default. It is recommended that you compress .rds files using the argument compress = \"gz\".\nUse file.path() to construct file paths that are reproducible across operating systems."
   },
   {
     "objectID": "02-r-code.html#supported-packages",
@@ -40,13 +40,6 @@
     "title": "2  R code",
     "section": "2.3 RStudio project",
     "text": "2.3 RStudio project\n\nDefine your repo as an RStudio project in RStudio as follows\n\nFile | New Project…\n\n\n\n\n\nExisting Directory\n\n\n\n\n\nThen find your repo\nThis will create a .Rproj file at the top level of your repo\nCommit the file into your repo\nNow you can double click the .Rproj file to open the repo in RStudio, so you can work on your R scripts more conveniently"
-  },
-  {
-    "objectID": "03-outputs.html",
-    "href": "03-outputs.html",
-    "title": "3  Outputs for release",
-    "section": "",
-    "text": "All outputs for release should be classified as moderately_sensitive in actions. OpenSAFELY does not permit information relating to between 1 and less than 5 individuals to be released. Redaction functions are available from other users to help you prepare your output."
   },
   {
     "objectID": "03-outputs.html#tables",
@@ -74,13 +67,13 @@
     "href": "04-misc.html",
     "title": "4  Miscellaneous",
     "section": "",
-    "text": "Text files should end with a newline character (i.e., a blank line)\n\nIf you see the following red icon at the end of a file on GitHub, simply press ↵ Enter at the end of the file (i.e., in this case after the word Catalog), resave, commit, and the red icon should be gone\n\n\n\n\n\n\nPython and R versions\n\nThe versions of Python and R in their respective OpenSAFELY Docker containers are (as of 26th July 2022):\n\nPython 3.8.10\nR 4.0.2\n\nThe Python and R code run within their respective Docker containers. Hence the version of Python and R used to run your analyses are the versions of Python and R in these Docker containers and not the versions of Python and R on your computer\nTo see the Python version number insert in your study_definition.py\nimport sys\nprint(sys.implementation.version)\nTo see the R version number insert into one of your R analysis scripts\nprint(R.version.string)"
+    "text": "Text files should end with a newline character (i.e., a blank line)\n\nIf you see the following red icon at the end of a file on GitHub, simply press ↵ Enter at the end of the file (i.e., in this case after the word Catalog), resave, commit, and the red icon should be gone\n\n\n\n\n\n\nPython and R versions\n\nThe versions of Python and R in their respective OpenSAFELY Docker containers are (as of 9th November 2022):\n\nPython 3.8.10\nR 4.0.2\n\nThe Python and R code run within their respective Docker containers. Hence the version of Python and R used to run your analyses are the versions of Python and R in these Docker containers and not the versions of Python and R on your computer\nTo see the Python version number insert in your study_definition.py\nimport sys\nprint(sys.implementation.version)\nTo see the R version number insert into one of your R analysis scripts\nprint(R.version.string)"
   },
   {
     "objectID": "99-session-info.html",
     "href": "99-session-info.html",
     "title": "5  Session information",
     "section": "",
-    "text": "sessioninfo::session_info()\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.2.1 (2022-06-23)\n os       macOS Monterey 12.5\n system   aarch64, darwin20\n ui       X11\n language (EN)\n collate  en_GB.UTF-8\n ctype    en_GB.UTF-8\n tz       Europe/London\n date     2022-07-26\n pandoc   2.18 @ /opt/homebrew/bin/ (via rmarkdown)\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n cli           3.3.0   2022-04-25 [3] CRAN (R 4.2.0)\n digest        0.6.29  2021-12-01 [3] CRAN (R 4.2.0)\n evaluate      0.15    2022-02-18 [3] CRAN (R 4.2.0)\n fastmap       1.1.0   2021-01-25 [3] CRAN (R 4.2.0)\n htmltools     0.5.3   2022-07-18 [3] CRAN (R 4.2.1)\n htmlwidgets   1.5.4   2021-09-08 [3] CRAN (R 4.2.0)\n jsonlite      1.8.0   2022-02-22 [3] CRAN (R 4.2.0)\n knitr         1.39    2022-04-26 [3] CRAN (R 4.2.0)\n magrittr      2.0.3   2022-03-30 [3] CRAN (R 4.2.0)\n rlang         1.0.4   2022-07-12 [3] CRAN (R 4.2.1)\n rmarkdown     2.14    2022-04-25 [3] CRAN (R 4.2.0)\n sessioninfo   1.2.2   2021-12-06 [3] CRAN (R 4.2.0)\n stringi       1.7.8   2022-07-11 [3] CRAN (R 4.2.1)\n stringr       1.4.0   2019-02-10 [3] CRAN (R 4.2.0)\n xfun          0.31    2022-05-10 [3] CRAN (R 4.2.0)\n\n [1] /Users/tom/Library/R/arm64/4.2/library\n [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/site-library\n [3] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library\n\n──────────────────────────────────────────────────────────────────────────────"
+    "text": "For reproducibilty.\n\n\nClick here for R session information\n\n\nsessioninfo::session_info()\n\n─ Session info ───────────────────────────────────────────────────────────────\n setting  value\n version  R version 4.2.2 (2022-10-31)\n os       macOS Ventura 13.0\n system   aarch64, darwin20\n ui       X11\n language (EN)\n collate  en_GB.UTF-8\n ctype    en_GB.UTF-8\n tz       Europe/London\n date     2022-11-09\n pandoc   2.19.2 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/ (via rmarkdown)\n\n─ Packages ───────────────────────────────────────────────────────────────────\n package     * version date (UTC) lib source\n cli           3.4.1   2022-09-23 [1] CRAN (R 4.2.1)\n digest        0.6.30  2022-10-18 [3] CRAN (R 4.2.1)\n evaluate      0.18    2022-11-07 [3] CRAN (R 4.2.2)\n fastmap       1.1.0   2021-01-25 [3] CRAN (R 4.2.0)\n htmltools     0.5.3   2022-07-18 [3] CRAN (R 4.2.1)\n htmlwidgets   1.5.4   2021-09-08 [3] CRAN (R 4.2.0)\n jsonlite      1.8.3   2022-10-21 [3] CRAN (R 4.2.0)\n knitr         1.40    2022-08-24 [3] CRAN (R 4.2.1)\n magrittr      2.0.3   2022-03-30 [3] CRAN (R 4.2.0)\n rlang         1.0.6   2022-09-24 [3] CRAN (R 4.2.0)\n rmarkdown     2.17    2022-10-07 [3] CRAN (R 4.2.0)\n rstudioapi    0.14    2022-08-22 [3] CRAN (R 4.2.1)\n sessioninfo   1.2.2   2021-12-06 [3] CRAN (R 4.2.0)\n stringi       1.7.8   2022-07-11 [3] CRAN (R 4.2.1)\n stringr       1.4.1   2022-08-20 [3] CRAN (R 4.2.0)\n xfun          0.34    2022-10-18 [3] CRAN (R 4.2.1)\n\n [1] /Users/tom/Library/R/arm64/4.2/library\n [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/site-library\n [3] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library\n\n──────────────────────────────────────────────────────────────────────────────\n\nquarto::quarto_version()\n\n[1] '1.2.267'"
   }
 ]
