@@ -22,8 +22,8 @@ knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
 -->
     
 - All `.rds` files should all be classified as `highly_sensitive` in actions, as they cannot be opened on the results server and therefore cannot be reviewed or released.
-- `readr::write_rds` does not compress files by default. It is recommended that you compress .rds files using the argument `compress = "gz"`.
-- Use `file.path` to construct file paths that are reproducible across operating systems.
+- `readr::write_rds()` does not compress files by default. It is recommended that you compress .rds files using the argument `compress = "gz"`.
+- Use `file.path()` to construct file paths that are reproducible across operating systems.
 
 ## Supported packages
 

@@ -12,7 +12,6 @@ book:
     - 03-outputs.Rmd
     - 04-misc.Rmd
     - 99-session-info.Rmd
-  link-external-icon: true
   repo-url: https://github.com/remlapmot/os-bristol-best-practice
   repo-actions: source
   site-url: https://remlapmot.github.io/os-bristol-best-practice/
