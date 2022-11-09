@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures"><span class="toc-section-number">3.2</span>  Figures</a></li>
   <li><a href="#releasing-output" id="toc-releasing-output" class="nav-link" data-scroll-target="#releasing-output"><span class="toc-section-number">3.3</span>  Releasing output</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/remlapmot/os-bristol-best-practice/blob/main/03-outputs.Rmd" class="toc-action">View source</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/remlapmot/os-bristol-best-practice/blob/main/03-outputs.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -233,9 +233,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(object, </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">file =</span> <span class="fu">file.path</span>(<span class="st">"output"</span>, <span class="st">"mydata.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Do not save outputs to subdirectories of the <code>output</code> folder, otherwise running the study definition on GitHub Actions will probably fail with an error message such as</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<p><img src="img/output-subdir-error.png" class="img-fluid" width="316"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/output-subdir-error.png" class="img-fluid figure-img" width="316"></p>
+</figure>
+</div>
 </div>
 </div>
 <pre><code>Error in file(file, ifelse(append, "a", "w")) : 
