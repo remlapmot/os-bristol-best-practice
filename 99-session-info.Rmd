@@ -2,7 +2,10 @@
 
 For reproducibilty.
 
+<details>
+<summary>Click here for R session information</summary>
 ```{r}
 sessioninfo::session_info()
 quarto::quarto_version()
 ```
+</details>
