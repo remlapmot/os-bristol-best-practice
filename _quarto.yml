@@ -6,12 +6,12 @@ book:
   title: University of Bristol OpenSAFELY Best Practice
   author: "Tom Palmer, Elsie Horne, Venexia Walker"
   chapters:
-    - index.Rmd
-    - 01-study-definition.Rmd
-    - 02-r-code.Rmd
-    - 03-outputs.Rmd
-    - 04-misc.Rmd
-    - 99-session-info.Rmd
+    - index.qmd
+    - 01-study-definition.qmd
+    - 02-r-code.qmd
+    - 03-outputs.qmd
+    - 04-misc.qmd
+    - 99-session-info.qmd
   repo-url: https://github.com/remlapmot/os-bristol-best-practice
   repo-actions: source
   site-url: https://remlapmot.github.io/os-bristol-best-practice/
