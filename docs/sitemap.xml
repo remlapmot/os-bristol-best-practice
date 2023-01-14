@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://remlapmot.github.io/os-bristol-best-practice/index.html</loc>
-    <lastmod>2022-11-09T12:27:57.800Z</lastmod>
+    <lastmod>2023-01-14T23:18:47.379Z</lastmod>
   </url>
   <url>
     <loc>https://remlapmot.github.io/os-bristol-best-practice/01-study-definition.html</loc>
-    <lastmod>2022-11-09T12:27:57.801Z</lastmod>
+    <lastmod>2023-01-14T23:18:47.380Z</lastmod>
   </url>
   <url>
     <loc>https://remlapmot.github.io/os-bristol-best-practice/02-r-code.html</loc>
-    <lastmod>2022-11-09T12:27:57.801Z</lastmod>
+    <lastmod>2023-01-14T23:18:47.381Z</lastmod>
   </url>
   <url>
     <loc>https://remlapmot.github.io/os-bristol-best-practice/03-outputs.html</loc>
-    <lastmod>2022-11-09T12:27:57.801Z</lastmod>
+    <lastmod>2023-01-14T23:18:47.382Z</lastmod>
   </url>
   <url>
     <loc>https://remlapmot.github.io/os-bristol-best-practice/04-misc.html</loc>
-    <lastmod>2022-11-09T12:27:57.802Z</lastmod>
+    <lastmod>2023-01-14T23:18:47.383Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remlapmot.github.io/os-bristol-best-practice/05-docker-apple-silicon.html</loc>
+    <lastmod>2023-01-14T23:18:47.383Z</lastmod>
   </url>
   <url>
     <loc>https://remlapmot.github.io/os-bristol-best-practice/99-session-info.html</loc>
-    <lastmod>2022-11-09T12:27:57.802Z</lastmod>
+    <lastmod>2023-01-14T23:18:47.385Z</lastmod>
   </url>
 </urlset>
