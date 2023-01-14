@@ -11,6 +11,7 @@ book:
     - 02-r-code.qmd
     - 03-outputs.qmd
     - 04-misc.qmd
+    - 05-docker-apple-silicon.qmd
     - 99-session-info.qmd
   repo-url: https://github.com/remlapmot/os-bristol-best-practice
   repo-actions: source
