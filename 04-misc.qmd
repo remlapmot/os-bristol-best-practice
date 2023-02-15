@@ -14,9 +14,9 @@ knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
 
 ## Python and R versions
 
-- The versions of Python and R in their respective OpenSAFELY Docker containers are (as of 9<sup>th</sup> November 2022):
+- The versions of Python and R in their respective OpenSAFELY Docker containers are (as of 15<sup>th</sup> February 2023):
   - Python 3.8.10
-  - R 4.0.2
+  - R 4.0.5 (was R 4.0.2 upto and including 15/02/2023)
 - The Python and R code run within their respective Docker containers. Hence the version of Python and R used to run your analyses are the versions of Python and R in these Docker containers and *not* the versions of Python and R on your computer
 
 - To see the Python version number insert in your `study_definition.py`
