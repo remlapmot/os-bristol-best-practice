@@ -35,7 +35,7 @@ All outputs for release should be classified as `moderately_sensitive` in action
 
     Error: Process completed with exit code 1.
     ```  
-    
+
 ## Figures
 
 - Use `.svg` for figure outputs that will be sent to output checkers
